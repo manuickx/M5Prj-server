@@ -12,7 +12,7 @@ class ApplicationController < ActionController::API
         request.headers["Authorization"]
     end
 
-    def no_call_current_user
+    def get_current_user
         token = get_token
         decoded_token = decode_token(token)
         user = User.find(decoded_token["user_id"])
@@ -24,7 +24,7 @@ class ApplicationController < ActionController::API
     end
     
     def logged_in
-        !!no_call_current_user
+        !!get_current_user
     end
-    
+
 end

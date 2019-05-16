@@ -15,10 +15,10 @@ class AuthController < ApplicationController
 
     def show
         if logged_in
-            render json: no_call_current_user
+            render json: get_current_user
         else
             render json: { error: 'Try again!' }
         end
     end
-    
+
 end
